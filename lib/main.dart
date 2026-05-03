@@ -195,99 +195,69 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                     const SizedBox(height: 24),
                     const Text(
-                      'Contoh Aplikasi',
+                      'Fitur Utama',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
                         color: Color(0xFF1F2937),
                       ),
                     ),
+                    const SizedBox(height: 6),
+                    const Text(
+                      'Eksplorasi fitur unggulan dengan tampilan lebih atraktif dan interaktif.',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color(0xFF4B5563),
+                        height: 1.6,
+                      ),
+                    ),
                     const SizedBox(height: 16),
-                    _buildProjectCard('Counter', Icons.calculate, () {
-                      setState(() => clickedButtons['Counter'] = true);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const CounterPage()),
+                    ...[
+                      {
+                        'title': 'Counter',
+                        'icon': Icons.calculate,
+                        'subtitle': 'Hitung angka dengan desain penuh warna.',
+                        'page': const CounterPage(),
+                      },
+                      {
+                        'title': 'Widget Bertingkat',
+                        'icon': Icons.layers,
+                        'subtitle': 'Pelajari struktur widget bertingkat.',
+                        'page': const NestedWidgetPage(),
+                      },
+                      {
+                        'title': 'User Input',
+                        'icon': Icons.edit_note,
+                        'subtitle': 'Masukkan data dan lihat hasil langsung.',
+                        'page': const UserInputPage(),
+                      },
+                      {
+                        'title': 'Dynamic List',
+                        'icon': Icons.list_alt,
+                        'subtitle': 'Kelola daftar dinamis secara interaktif.',
+                        'page': const DynamicListPage(),
+                      },
+                      {
+                        'title': 'Navigasi Sederhana',
+                        'icon': Icons.navigation,
+                        'subtitle': 'Jelajahi pengalaman berpindah halaman.',
+                        'page': const SimpleNavigationPage(),
+                      },
+                      {
+                        'title': 'Grid View',
+                        'icon': Icons.grid_on,
+                        'subtitle': 'Tampilan data grid rapi dan modern.',
+                        'page': const GridViewPage(),
+                      },
+                    ].map<Widget>((feature) {
+                      return _buildProjectCard(
+                        feature['title'] as String,
+                        feature['icon'] as IconData,
+                        feature['subtitle'] as String,
+                        feature['page'] as Widget,
+                        clickedButtons[feature['title'] as String] ?? false,
                       );
-                    }, clickedButtons['Counter'] ?? false),
-                    _buildProjectCard(
-                      'Widget Bertingkat',
-                      Icons.layers,
-                      () {
-                        setState(
-                          () => clickedButtons['Widget Bertingkat'] = true,
-                        );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const NestedWidgetPage(),
-                          ),
-                        );
-                      },
-                      clickedButtons['Widget Bertingkat'] ?? false,
-                    ),
-                    _buildProjectCard(
-                      'User Input',
-                      Icons.edit_note,
-                      () {
-                        setState(
-                          () => clickedButtons['User Input Example'] = true,
-                        );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const UserInputPage(),
-                          ),
-                        );
-                      },
-                      clickedButtons['User Input Example'] ?? false,
-                    ),
-                    _buildProjectCard(
-                      'Dynamic List',
-                      Icons.list_alt,
-                      () {
-                        setState(
-                          () => clickedButtons['Dynamic List Example'] = true,
-                        );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const DynamicListPage(),
-                          ),
-                        );
-                      },
-                      clickedButtons['Dynamic List Example'] ?? false,
-                    ),
-                    _buildProjectCard(
-                      'Navigasi Sederhana',
-                      Icons.navigation,
-                      () {
-                        setState(
-                          () => clickedButtons['Navigasi Sederhana'] = true,
-                        );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SimpleNavigationPage(),
-                          ),
-                        );
-                      },
-                      clickedButtons['Navigasi Sederhana'] ?? false,
-                    ),
-                    _buildProjectCard(
-                      'Grid View',
-                      Icons.grid_on,
-                      () {
-                        setState(() => clickedButtons['Grid View'] = true);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const GridViewPage(),
-                          ),
-                        );
-                      },
-                      clickedButtons['Grid View'] ?? false,
-                    ),
+                    }),
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () => Navigator.push(
@@ -343,55 +313,80 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget _buildProjectCard(
     String label,
     IconData icon,
-    VoidCallback onPressed,
+    String description,
+    Widget page,
     bool isClicked,
   ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(22),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFFFFFFFF), Color(0xFFF8FAFF)],
+          ),
+          borderRadius: BorderRadius.circular(24),
           border: Border.all(
             color: isClicked
-                ? const Color(0xFF4F46E5).withValues(alpha: 0.15)
+                ? const Color(0xFF4F46E5).withValues(alpha: 0.18)
                 : Colors.transparent,
             width: 1.5,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.06),
-              blurRadius: 18,
-              offset: const Offset(0, 10),
+              color: const Color(0xFF434343).withValues(alpha: 0.08),
+              blurRadius: 22,
+              offset: const Offset(0, 12),
             ),
           ],
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: onPressed,
-            borderRadius: BorderRadius.circular(22),
+            onTap: () {
+              setState(() => clickedButtons[label] = true);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => page),
+              );
+            },
+            borderRadius: BorderRadius.circular(24),
+            splashColor: const Color(0xFF4F46E5).withValues(alpha: 0.12),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
               child: Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(14),
+                    width: 58,
+                    height: 58,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                         colors: isClicked
                             ? const [Color(0xFF4F46E5), Color(0xFF818CF8)]
-                            : const [Color(0xFFF0F9FF), Color(0xFFE0E7FF)],
+                            : const [Color(0xFFE0E7FF), Color(0xFFD8DBFF)],
                       ),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(18),
+                      boxShadow: [
+                        BoxShadow(
+                          color: (isClicked
+                                  ? const Color(0xFF4F46E5)
+                                  : const Color(0xFF4F46E5))
+                              .withValues(alpha: isClicked ? 0.24 : 0.14),
+                          blurRadius: 16,
+                          offset: const Offset(0, 8),
+                        ),
+                      ],
                     ),
                     child: Icon(
                       icon,
                       color: isClicked ? Colors.white : const Color(0xFF4F46E5),
-                      size: 24,
+                      size: 28,
                     ),
                   ),
-                  const SizedBox(width: 18),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -399,31 +394,37 @@ class _DashboardPageState extends State<DashboardPage> {
                         Text(
                           label,
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w800,
                             color: isClicked
-                                ? const Color(0xFF312E81)
+                                ? const Color(0xFF1E293B)
                                 : const Color(0xFF111827),
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 6),
                         Text(
-                          'Tekan untuk membuka contoh aplikasi',
-                          style: TextStyle(
+                          description,
+                          style: const TextStyle(
                             fontSize: 13,
-                            color: Colors.grey[500],
-                            height: 1.4,
+                            color: Color(0xFF6B7280),
+                            height: 1.5,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: isClicked
-                        ? const Color(0xFF4F46E5)
-                        : Colors.grey[400],
+                  const SizedBox(width: 12),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: isClicked ? const Color(0xFFEEF2FF) : const Color(0xFFF9FAFB),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: isClicked ? const Color(0xFF4F46E5) : const Color(0xFF9CA3AF),
+                    ),
                   ),
                 ],
               ),
