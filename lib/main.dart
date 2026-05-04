@@ -13,13 +13,14 @@ class MyApp extends StatelessWidget {
       title: 'MyPorto',
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xFFEEF2FF),
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: const Color(0xFFFAFBFC),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF4F46E5),
+          seedColor: const Color(0xFF6366F1),
           brightness: Brightness.light,
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF4F46E5),
+          backgroundColor: Color(0xFF6366F1),
           foregroundColor: Colors.white,
           elevation: 0,
         ),
@@ -38,13 +39,12 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  // Track which buttons have been clicked
   final Map<String, bool> clickedButtons = {
     'Counter': false,
     'Widget Bertingkat': false,
-    'User Input Example': false,
-    'Dynamic List Example': false,
-    'Navigasi Sederhana': false,
+    'User Input': false,
+    'Dynamic List': false,
+    'Navigasi': false,
     'Grid View': false,
   };
 
@@ -58,13 +58,13 @@ class _DashboardPageState extends State<DashboardPage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFFEEF2FF), Color(0xFFDDE4FF)],
+            colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)],
           ),
         ),
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              expandedHeight: 200,
+              expandedHeight: 220,
               floating: true,
               pinned: true,
               stretch: true,
@@ -72,27 +72,32 @@ class _DashboardPageState extends State<DashboardPage> {
               backgroundColor: Colors.transparent,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                titlePadding: const EdgeInsets.only(bottom: 18),
+                titlePadding: const EdgeInsets.only(bottom: 20),
                 title: const Text(
                   'MyPorto',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28,
+                    letterSpacing: 1.2,
+                    color: Colors.white,
+                  ),
                 ),
                 background: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [Color(0xFF4F46E5), Color(0xFF818CF8)],
+                      colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
                     ),
                   ),
                   child: Stack(
                     children: [
                       Positioned(
-                        top: 24,
-                        right: -40,
+                        top: 30,
+                        right: -50,
                         child: Container(
-                          width: 120,
-                          height: 120,
+                          width: 150,
+                          height: 150,
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.12),
                             shape: BoxShape.circle,
@@ -100,11 +105,11 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                       ),
                       Positioned(
-                        left: -30,
-                        bottom: -20,
+                        left: -40,
+                        bottom: -30,
                         child: Container(
-                          width: 140,
-                          height: 140,
+                          width: 180,
+                          height: 180,
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.08),
                             shape: BoxShape.circle,
@@ -118,20 +123,28 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+                padding: const EdgeInsets.fromLTRB(18, 20, 18, 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Container(
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(24),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0xFFFFFFFF), Color(0xFFF5F7FF)],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: const Color(0xFF6366F1).withValues(alpha: 0.15),
+                          width: 1.5,
+                        ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.05),
-                            blurRadius: 18,
-                            offset: const Offset(0, 10),
+                            color: const Color(0xFF6366F1).withValues(alpha: 0.08),
+                            blurRadius: 24,
+                            offset: const Offset(0, 12),
                           ),
                         ],
                       ),
@@ -139,162 +152,107 @@ class _DashboardPageState extends State<DashboardPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Halo, Selamat Datang!',
+                            'Halo, Selamat Datang! 👋',
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w800,
                               color: Color(0xFF1F2937),
+                              letterSpacing: 0.5,
                             ),
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: 12),
                           const Text(
-                            'Jelajahi aplikasi portofolio sederhana dengan gaya modern dan interaktif.',
+                            'Jelajahi portofolio interaktif dengan teknologi Flutter modern dan desain premium.',
                             style: TextStyle(
                               fontSize: 14,
-                              color: Color(0xFF4B5563),
-                              height: 1.6,
+                              color: Color(0xFF6B7280),
+                              height: 1.7,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 14,
-                                  vertical: 10,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEDE9FE),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.visibility,
-                                      size: 18,
-                                      color: Color(0xFF4F46E5),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Text(
-                                      '$completedCount dipilih',
-                                      style: const TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF4F46E5),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 8),
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
                               ),
-                              const SizedBox.shrink(),
-                            ],
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0xFF6366F1).withValues(alpha: 0.3),
+                                  blurRadius: 12,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(
+                                  Icons.check_circle,
+                                  size: 18,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '$completedCount Telah Dikunjungi',
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 32),
                     const Text(
-                      'Fitur Utama',
+                      'Fitur Unggulan',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                         color: Color(0xFF1F2937),
+                        letterSpacing: 0.3,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     const Text(
-                      'Eksplorasi fitur unggulan dengan tampilan lebih atraktif dan interaktif.',
+                      'Temukan berbagai fitur interaktif yang menakjubkan',
                       style: TextStyle(
-                        fontSize: 14,
-                        color: Color(0xFF4B5563),
+                        fontSize: 13,
+                        color: Color(0xFF6B7280),
                         height: 1.6,
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    ...[
-                      {
-                        'title': 'Counter',
-                        'icon': Icons.calculate,
-                        'subtitle': 'Hitung angka dengan desain penuh warna.',
-                        'page': const CounterPage(),
-                      },
-                      {
-                        'title': 'Widget Bertingkat',
-                        'icon': Icons.layers,
-                        'subtitle': 'Pelajari struktur widget bertingkat.',
-                        'page': const NestedWidgetPage(),
-                      },
-                      {
-                        'title': 'User Input',
-                        'icon': Icons.edit_note,
-                        'subtitle': 'Masukkan data dan lihat hasil langsung.',
-                        'page': const UserInputPage(),
-                      },
-                      {
-                        'title': 'Dynamic List',
-                        'icon': Icons.list_alt,
-                        'subtitle': 'Kelola daftar dinamis secara interaktif.',
-                        'page': const DynamicListPage(),
-                      },
-                      {
-                        'title': 'Navigasi Sederhana',
-                        'icon': Icons.navigation,
-                        'subtitle': 'Jelajahi pengalaman berpindah halaman.',
-                        'page': const SimpleNavigationPage(),
-                      },
-                      {
-                        'title': 'Grid View',
-                        'icon': Icons.grid_on,
-                        'subtitle': 'Tampilan data grid rapi dan modern.',
-                        'page': const GridViewPage(),
-                      },
-                    ].map<Widget>((feature) {
-                      return _buildProjectCard(
-                        feature['title'] as String,
-                        feature['icon'] as IconData,
-                        feature['subtitle'] as String,
-                        feature['page'] as Widget,
-                        clickedButtons[feature['title'] as String] ?? false,
-                      );
-                    }),
+                    const SizedBox(height: 20),
+                    _buildCard('Counter', Icons.calculate_outlined, 'Aplikasi penghitung dengan desain modern', const CounterPage(), const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)])),
+                    _buildCard('Widget Bertingkat', Icons.layers_outlined, 'Pelajari struktur widget yang kompleks', const NestedWidgetPage(), const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)])),
+                    _buildCard('User Input', Icons.edit_note_outlined, 'Form input yang elegan dan responsif', const UserInputPage(), const LinearGradient(colors: [Color(0xFFF59E0B), Color(0xFFD97706)])),
+                    _buildCard('Dynamic List', Icons.list_alt_outlined, 'Kelola daftar dinamis dengan interaktif', const DynamicListPage(), const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFBE185D)])),
+                    _buildCard('Navigasi', Icons.navigation_outlined, 'Sistem navigasi halaman yang intuitif', const SimpleNavigationPage(), const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)])),
+                    _buildCard('Grid View', Icons.grid_on_outlined, 'Tampilan data dalam bentuk grid menarik', const GridViewPage(), const LinearGradient(colors: [Color(0xFF14B8A6), Color(0xFF0D9488)])),
                     const SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const AboutMePage()),
-                      ),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AboutMePage())),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 18,
-                          horizontal: 20,
-                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 18),
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFF6366F1).withValues(alpha: 0.22),
-                              blurRadius: 16,
-                              offset: const Offset(0, 10),
-                            ),
-                          ],
+                          gradient: const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
+                          borderRadius: BorderRadius.circular(18),
+                          boxShadow: [BoxShadow(color: const Color(0xFF6366F1).withValues(alpha: 0.3), blurRadius: 20, offset: const Offset(0, 10))],
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Icon(Icons.person, color: Colors.white, size: 20),
+                            Icon(Icons.person_outline, color: Colors.white, size: 22),
                             SizedBox(width: 10),
-                            Text(
-                              'Tentang Saya',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
+                            Text('Tentang Saya', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700)),
                           ],
                         ),
                       ),
@@ -310,121 +268,63 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  Widget _buildProjectCard(
-    String label,
-    IconData icon,
-    String description,
-    Widget page,
-    bool isClicked,
-  ) {
+  Widget _buildCard(String title, IconData icon, String subtitle, Widget page, Gradient gradient) {
+    bool isClicked = clickedButtons[title] ?? false;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
+      padding: const EdgeInsets.only(bottom: 16),
       child: Container(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFFFFFFFF), Color(0xFFF8FAFF)],
+            colors: isClicked ? [gradient.colors[0], gradient.colors[1]] : [Color(0xFFFFFFFF), Color(0xFFF8FAFF)],
           ),
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: isClicked
-                ? const Color(0xFF4F46E5).withValues(alpha: 0.18)
-                : Colors.transparent,
+            color: isClicked ? gradient.colors[0].withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.1),
             width: 1.5,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF434343).withValues(alpha: 0.08),
-              blurRadius: 22,
-              offset: const Offset(0, 12),
-            ),
-          ],
+          boxShadow: [BoxShadow(color: isClicked ? gradient.colors[0].withValues(alpha: 0.2) : Colors.grey.withValues(alpha: 0.08), blurRadius: 20, offset: const Offset(0, 8))],
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              setState(() => clickedButtons[label] = true);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => page),
-              );
+              setState(() => clickedButtons[title] = true);
+              Navigator.push(context, MaterialPageRoute(builder: (_) => page));
             },
-            borderRadius: BorderRadius.circular(24),
-            splashColor: const Color(0xFF4F46E5).withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(18),
+            splashColor: gradient.colors[0].withValues(alpha: 0.15),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               child: Row(
                 children: [
                   Container(
-                    width: 58,
-                    height: 58,
+                    width: 60,
+                    height: 60,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: isClicked
-                            ? const [Color(0xFF4F46E5), Color(0xFF818CF8)]
-                            : const [Color(0xFFE0E7FF), Color(0xFFD8DBFF)],
-                      ),
-                      borderRadius: BorderRadius.circular(18),
-                      boxShadow: [
-                        BoxShadow(
-                          color: (isClicked
-                                  ? const Color(0xFF4F46E5)
-                                  : const Color(0xFF4F46E5))
-                              .withValues(alpha: isClicked ? 0.24 : 0.14),
-                          blurRadius: 16,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
+                      gradient: gradient,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [BoxShadow(color: gradient.colors[0].withValues(alpha: 0.2), blurRadius: 16, offset: const Offset(0, 4))],
                     ),
-                    child: Icon(
-                      icon,
-                      color: isClicked ? Colors.white : const Color(0xFF4F46E5),
-                      size: 28,
-                    ),
+                    child: Icon(icon, color: Colors.white, size: 30),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 18),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          label,
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w800,
-                            color: isClicked
-                                ? const Color(0xFF1E293B)
-                                : const Color(0xFF111827),
-                          ),
-                        ),
+                        Text(title, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: isClicked ? Colors.white : Color(0xFF1F2937))),
                         const SizedBox(height: 6),
-                        Text(
-                          description,
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: Color(0xFF6B7280),
-                            height: 1.5,
-                          ),
-                        ),
+                        Text(subtitle, style: TextStyle(fontSize: 13, color: isClicked ? Colors.white70 : Color(0xFF6B7280), height: 1.5), maxLines: 1, overflow: TextOverflow.ellipsis),
                       ],
                     ),
                   ),
                   const SizedBox(width: 12),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: isClicked ? const Color(0xFFEEF2FF) : const Color(0xFFF9FAFB),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                      color: isClicked ? const Color(0xFF4F46E5) : const Color(0xFF9CA3AF),
-                    ),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: isClicked ? Colors.white.withValues(alpha: 0.25) : Colors.grey.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(12)),
+                    child: Icon(Icons.arrow_forward_ios_rounded, size: 16, color: isClicked ? Colors.white : Color(0xFF9CA3AF)),
                   ),
                 ],
               ),
@@ -436,11 +336,7 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 }
 
-// ============================================================================
-// PROJECT PAGES
-// ============================================================================
-
-// 1. Counter Page
+// Counter Page
 class CounterPage extends StatefulWidget {
   const CounterPage({super.key});
 
@@ -455,23 +351,11 @@ class _CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFF8F9FF), Color(0xFFEEF2FF)],
-          ),
-        ),
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
         child: Column(
           children: [
             Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                ),
-              ),
+              decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)])),
               child: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -479,27 +363,10 @@ class _CounterPageState extends State<CounterPage> {
                     children: [
                       GestureDetector(
                         onTap: () => Navigator.pop(context),
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.2),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
-                        ),
+                        child: Container(padding: const EdgeInsets.all(8), decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.25), borderRadius: BorderRadius.circular(10)), child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 24)),
                       ),
-                      const SizedBox(width: 12),
-                      const Text(
-                        'Counter',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      const SizedBox(width: 14),
+                      const Text('Counter', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white, letterSpacing: 0.5)),
                     ],
                   ),
                 ),
@@ -514,49 +381,16 @@ class _CounterPageState extends State<CounterPage> {
                       width: 200,
                       height: 200,
                       decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                        ),
+                        gradient: const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
                         shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(
-                              0xFF6366F1,
-                            ).withValues(alpha: 0.4),
-                            blurRadius: 20,
-                            offset: const Offset(0, 10),
-                          ),
-                        ],
+                        boxShadow: [BoxShadow(color: const Color(0xFF6366F1).withValues(alpha: 0.4), blurRadius: 28, offset: const Offset(0, 12))],
                       ),
-                      child: Center(
-                        child: Text(
-                          '$_counter',
-                          style: const TextStyle(
-                            fontSize: 80,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      child: Center(child: Text('$_counter', style: const TextStyle(fontSize: 80, fontWeight: FontWeight.bold, color: Colors.white, letterSpacing: 2))),
                     ),
-                    const SizedBox(height: 32),
-                    const Text(
-                      'Anda telah menekan tombol:',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      '$_counter kali',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF6366F1),
-                      ),
-                    ),
+                    const SizedBox(height: 40),
+                    const Text('Anda telah menekan tombol:', style: TextStyle(fontSize: 15, color: Color(0xFF6B7280), fontWeight: FontWeight.w500)),
+                    const SizedBox(height: 10),
+                    Text('$_counter kali', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: Color(0xFF6366F1), letterSpacing: 0.5)),
                   ],
                 ),
               ),
@@ -564,15 +398,11 @@ class _CounterPageState extends State<CounterPage> {
             Padding(
               padding: const EdgeInsets.all(24),
               child: FloatingActionButton.extended(
-                onPressed: () {
-                  setState(() => _counter++);
-                },
+                onPressed: () => setState(() => _counter++),
                 backgroundColor: const Color(0xFF6366F1),
-                icon: const Icon(Icons.add, size: 28),
-                label: const Text(
-                  'Tambah',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                icon: const Icon(Icons.add_rounded, size: 30, color: Colors.white),
+                label: const Text('Tambah', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.white)),
               ),
             ),
           ],
@@ -582,248 +412,80 @@ class _CounterPageState extends State<CounterPage> {
   }
 }
 
-// 2. Nested Widget Page
+// Nested Widget Page
 class NestedWidgetPage extends StatelessWidget {
   const NestedWidgetPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF10B981),
+        title: const Text('Widget Bertingkat', style: TextStyle(fontWeight: FontWeight.bold)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded), onPressed: () => Navigator.pop(context)),
+      ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFF8F9FF), Color(0xFFEEF2FF)],
-          ),
-        ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 100,
-              floating: true,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                title: const Text(
-                  'Widget Bertingkat',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Struktur Nested Widget', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: Color(0xFF1F2937))),
+              const SizedBox(height: 24),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [BoxShadow(color: const Color(0xFF10B981).withValues(alpha: 0.3), blurRadius: 16, offset: const Offset(0, 8))],
                 ),
-                centerTitle: true,
-                background: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                    ),
-                  ),
-                ),
-              ),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+                padding: const EdgeInsets.all(20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Struktur Nested Widget',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1F2937),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    _buildNestedContainer(),
-                    const SizedBox(height: 24),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFFFAF5FF), Color(0xFFEDE9FE)],
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: const Color(0xFFE9D5FF),
-                          width: 2,
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: const Icon(
-                              Icons.info,
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          const Expanded(
-                            child: Text(
-                              'Struktur Nested Widget berguna untuk membuat layout yang kompleks dengan terorganisir.',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Color(0xFF4F46E5),
-                                fontWeight: FontWeight.w500,
-                                height: 1.5,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNestedContainer() {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-        ),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF6366F1).withValues(alpha: 0.2),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Row(
                   children: [
                     Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: Colors.white70,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Outer Container',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(14),
-                  child: Column(
-                    children: [
-                      Row(
+                      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(14)),
+                      padding: const EdgeInsets.all(18),
+                      child: Column(
                         children: [
+                          Row(children: [Container(width: 10, height: 10, decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.8), shape: BoxShape.circle)), const SizedBox(width: 10), const Text('Outer Container', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 15))]),
+                          const SizedBox(height: 18),
                           Container(
-                            width: 6,
-                            height: 6,
-                            decoration: const BoxDecoration(
-                              color: Colors.white60,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const Text(
-                            'Middle Container',
-                            style: TextStyle(
-                              color: Colors.white70,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 14),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
+                            decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.18), borderRadius: BorderRadius.circular(12)),
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
                               children: [
-                                Icon(
-                                  Icons.check_circle,
-                                  color: Colors.white60,
-                                  size: 16,
-                                ),
-                                SizedBox(width: 6),
-                                Text(
-                                  'Inner Container',
-                                  style: TextStyle(
-                                    color: Colors.white60,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12,
+                                Row(children: [Container(width: 8, height: 8, decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.7), shape: BoxShape.circle)), const SizedBox(width: 8), const Text('Middle Container', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w700, fontSize: 14))]),
+                                const SizedBox(height: 14),
+                                Container(
+                                  decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.24), borderRadius: BorderRadius.circular(10)),
+                                  padding: const EdgeInsets.all(14),
+                                  child: const Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(children: [Icon(Icons.check_circle_outline_rounded, color: Colors.white60, size: 18), SizedBox(width: 8), Text('Inner Container', style: TextStyle(color: Colors.white60, fontWeight: FontWeight.w700, fontSize: 13))]),
+                                      SizedBox(height: 10),
+                                      Text('Ini adalah widget paling dalam dari struktur berlapis yang menunjukkan konsep nesting widget dalam Flutter.', style: TextStyle(color: Colors.white54, fontSize: 12, height: 1.6)),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Ini adalah widget terdalam dari struktur bertingkat yang menunjukkan konsep nesting dalam Flutter.',
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 12,
-                                height: 1.5,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
 }
 
-// 3. User Input Page
+// User Input Page
 class UserInputPage extends StatefulWidget {
   const UserInputPage({super.key});
 
@@ -839,234 +501,75 @@ class _UserInputPageState extends State<UserInputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF59E0B),
+        title: const Text('User Input', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded, color: Colors.white), onPressed: () => Navigator.pop(context)),
+      ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFF8F9FF), Color(0xFFEEF2FF)],
-          ),
-        ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 100,
-              floating: true,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                title: const Text(
-                  'User Input Example',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Masukkan Data Anda', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: Color(0xFF1F2937))),
+              const SizedBox(height: 24),
+              _buildInputField('Nama', Icons.person_outline, 'Masukkan nama', _nameController),
+              const SizedBox(height: 16),
+              _buildInputField('Email', Icons.email_outlined, 'Masukkan email', _emailController),
+              const SizedBox(height: 32),
+              GestureDetector(
+                onTap: () => setState(() => _displayText = 'Nama: ${_nameController.text}\nEmail: ${_emailController.text}'),
+                child: Container(
+                  decoration: BoxDecoration(gradient: const LinearGradient(colors: [Color(0xFFF59E0B), Color(0xFFD97706)]), borderRadius: BorderRadius.circular(16), boxShadow: [BoxShadow(color: const Color(0xFFF59E0B).withValues(alpha: 0.3), blurRadius: 16, offset: const Offset(0, 8))]),
+                  padding: const EdgeInsets.symmetric(vertical: 18),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: const [Icon(Icons.send_rounded, color: Colors.white, size: 22), SizedBox(width: 10), Text('Submit', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white))]),
                 ),
-                centerTitle: true,
-                background: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                    ),
+              ),
+              if (_displayText.isNotEmpty) ...[
+                const SizedBox(height: 32),
+                Container(
+                  padding: const EdgeInsets.all(22),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(colors: [Color(0xFFECF8F0), Color(0xFFDCF8EA)]),
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: const Color(0xFF10B981).withValues(alpha: 0.3), width: 2),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(children: [Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(gradient: const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]), borderRadius: BorderRadius.circular(10)), child: const Icon(Icons.check_circle_rounded, color: Colors.white, size: 22)), const SizedBox(width: 12), const Text('Data Berhasil Disimpan', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: Color(0xFF10B981)))]),
+                      const SizedBox(height: 16),
+                      Text(_displayText, style: const TextStyle(fontSize: 14, color: Color(0xFF10B981), fontWeight: FontWeight.w500, height: 2)),
+                    ],
                   ),
                 ),
-              ),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Masukkan Data Anda',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF1F2937),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    _buildInputField(
-                      controller: _nameController,
-                      label: 'Nama',
-                      icon: Icons.person,
-                      hint: 'Masukkan nama Anda',
-                    ),
-                    const SizedBox(height: 16),
-                    _buildInputField(
-                      controller: _emailController,
-                      label: 'Email',
-                      icon: Icons.email,
-                      hint: 'Masukkan email Anda',
-                    ),
-                    const SizedBox(height: 32),
-                    Container(
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(
-                              0xFF6366F1,
-                            ).withValues(alpha: 0.3),
-                            blurRadius: 8,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _displayText =
-                                  'Nama: ${_nameController.text}\nEmail: ${_emailController.text}';
-                            });
-                          },
-                          borderRadius: BorderRadius.circular(12),
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.check, color: Colors.white),
-                                SizedBox(width: 8),
-                                Text(
-                                  'Submit',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (_displayText.isNotEmpty) ...[
-                      const SizedBox(height: 32),
-                      Container(
-                        padding: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFFF0FDF4), Color(0xFFDCFCE7)],
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color: const Color(0x8610B981),
-                            width: 2,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(
-                                0xFF10B981,
-                              ).withValues(alpha: 0.1),
-                              blurRadius: 12,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    gradient: const LinearGradient(
-                                      colors: [
-                                        Color(0xFF10B981),
-                                        Color(0xFF059669),
-                                      ],
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  child: const Icon(
-                                    Icons.check_circle,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                const Text(
-                                  'Data yang Diterima',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 16,
-                                    color: Color(0xFF065F46),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 16),
-                            Text(
-                              _displayText,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Color(0xFF047857),
-                                fontWeight: FontWeight.w500,
-                                height: 1.8,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                    const SizedBox(height: 32),
-                  ],
-                ),
-              ),
-            ),
-          ],
+              ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildInputField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    required String hint,
-  }) {
+  Widget _buildInputField(String label, IconData icon, String hint, TextEditingController controller) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.15), width: 1.5),
+        boxShadow: [BoxShadow(color: Colors.grey.withValues(alpha: 0.08), blurRadius: 12, offset: const Offset(0, 2))],
       ),
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
-          prefixIcon: Container(
-            padding: const EdgeInsets.all(12),
-            child: Icon(icon, color: const Color(0xFF6366F1)),
-          ),
+          prefixIcon: Icon(icon, color: const Color(0xFFF59E0B)),
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-          labelStyle: const TextStyle(
-            color: Color(0xFF6366F1),
-            fontWeight: FontWeight.w600,
-          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          labelStyle: const TextStyle(color: Color(0xFFF59E0B), fontWeight: FontWeight.w600),
         ),
       ),
     );
@@ -1080,7 +583,7 @@ class _UserInputPageState extends State<UserInputPage> {
   }
 }
 
-// 4. Dynamic List Page
+// Dynamic List Page
 class DynamicListPage extends StatefulWidget {
   const DynamicListPage({super.key});
 
@@ -1089,77 +592,94 @@ class DynamicListPage extends StatefulWidget {
 }
 
 class _DynamicListPageState extends State<DynamicListPage> {
-  final List<String> _items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
+  final List<String> _items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
   final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dynamic List Example'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        backgroundColor: const Color(0xFFEC4899),
+        title: const Text('Dynamic List', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded, color: Colors.white), onPressed: () => Navigator.pop(context)),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      labelText: 'Tambah Item',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+      body: Container(
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(18),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.grey.withValues(alpha: 0.15), width: 1.5)),
+                      child: TextField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          labelText: 'Tambah Item',
+                          prefixIcon: const Icon(Icons.add_circle_outline_rounded, color: Color(0xFFEC4899)),
+                          border: InputBorder.none,
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                          labelStyle: const TextStyle(color: Color(0xFFEC4899), fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_controller.text.isNotEmpty) {
-                      setState(() {
-                        _items.add(_controller.text);
-                        _controller.clear();
-                      });
-                    }
-                  },
-                  child: const Text('Tambah'),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: CircleAvatar(child: Text('${index + 1}')),
-                  title: Text(_items[index]),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      setState(() {
-                        _items.removeAt(index);
-                      });
+                  const SizedBox(width: 12),
+                  GestureDetector(
+                    onTap: () {
+                      if (_controller.text.isNotEmpty) {
+                        setState(() {
+                          _items.add(_controller.text);
+                          _controller.clear();
+                        });
+                      }
                     },
+                    child: Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(gradient: const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFBE185D)]), borderRadius: BorderRadius.circular(14)),
+                      child: const Icon(Icons.add_rounded, color: Colors.white, size: 26),
+                    ),
                   ),
-                );
-              },
+                ],
+              ),
             ),
-          ),
-        ],
+            Expanded(
+              child: _items.isEmpty
+                  ? Center(child: Column(mainAxisAlignment: MainAxisAlignment.center, children: const [Icon(Icons.inbox_rounded, size: 60, color: Color(0xFF9CA3AF)), SizedBox(height: 16), Text('Belum ada item', style: TextStyle(color: Color(0xFF9CA3AF), fontSize: 16, fontWeight: FontWeight.w500))]))
+                  : ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      itemCount: _items.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(color: const Color(0xFFEC4899).withValues(alpha: 0.15), width: 1.5),
+                            ),
+                            child: ListTile(
+                              leading: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: const BoxDecoration(gradient: LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFBE185D)]), shape: BoxShape.circle),
+                                child: Center(child: Text('${index + 1}', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16))),
+                              ),
+                              title: Text(_items[index], style: const TextStyle(color: Color(0xFF1F2937), fontWeight: FontWeight.w600, fontSize: 15)),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.delete_rounded, color: Color(0xFFEC4899), size: 24),
+                                onPressed: () => setState(() => _items.removeAt(index)),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1171,7 +691,7 @@ class _DynamicListPageState extends State<DynamicListPage> {
   }
 }
 
-// 5. Simple Navigation Page
+// Simple Navigation Page
 class SimpleNavigationPage extends StatefulWidget {
   const SimpleNavigationPage({super.key});
 
@@ -1182,444 +702,210 @@ class SimpleNavigationPage extends StatefulWidget {
 class _SimpleNavigationPageState extends State<SimpleNavigationPage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.home, size: 64, color: Colors.indigo),
-          const SizedBox(height: 16),
-          const Text(
-            'Halaman Home',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    ),
-    Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.person, size: 64, color: Colors.blue),
-          const SizedBox(height: 16),
-          const Text(
-            'Halaman Profil',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    ),
-    Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.settings, size: 64, color: Colors.orange),
-          const SizedBox(height: 16),
-          const Text(
-            'Halaman Pengaturan',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final pages = [
+      _buildPageContent('Home', Icons.home_rounded, const Color(0xFF3B82F6)),
+      _buildPageContent('Profil', Icons.person_rounded, const Color(0xFF3B82F6)),
+      _buildPageContent('Pengaturan', Icons.settings_rounded, const Color(0xFF3B82F6)),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Navigasi Sederhana'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        backgroundColor: const Color(0xFF3B82F6),
+        title: const Text('Navigasi Sederhana', style: TextStyle(fontWeight: FontWeight.bold)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded), onPressed: () => Navigator.pop(context)),
       ),
-      body: _pages[_selectedIndex],
+      body: Container(
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: pages[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
+        selectedItemColor: const Color(0xFF3B82F6),
+        unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Pengaturan',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), activeIcon: Icon(Icons.home_rounded), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), activeIcon: Icon(Icons.person_rounded), label: 'Profil'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), activeIcon: Icon(Icons.settings_rounded), label: 'Pengaturan'),
         ],
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
+        onTap: (index) => setState(() => _selectedIndex = index),
+      ),
+    );
+  }
+
+  Widget _buildPageContent(String title, IconData icon, Color color) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(gradient: LinearGradient(colors: [color, Color.fromARGB(255, color.red ~/ 2, color.green ~/ 2, color.blue ~/ 2)]), shape: BoxShape.circle),
+            child: Icon(icon, size: 60, color: Colors.white),
+          ),
+          const SizedBox(height: 20),
+          Text('Halaman $title', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Color(0xFF1F2937))),
+          const SizedBox(height: 12),
+          Text('Konten halaman $title', style: const TextStyle(fontSize: 14, color: Color(0xFF6B7280))),
+        ],
       ),
     );
   }
 }
 
-// 6. Grid View Page
+// Grid View Page
 class GridViewPage extends StatelessWidget {
   const GridViewPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<String> gridItems = List.generate(
-      12,
-      (index) => 'Item ${index + 1}',
-    );
+    final List<String> gridItems = List.generate(12, (index) => 'Item ${index + 1}');
     final gradients = [
-      const LinearGradient(colors: [Color(0xFFFF6B6B), Color(0xFFEE5A6F)]),
-      const LinearGradient(colors: [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
-      const LinearGradient(colors: [Color(0xFFF7B731), Color(0xFFF0932B)]),
       const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
-      const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFF43F5E)]),
       const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
-      const LinearGradient(colors: [Color(0xFF06B6D4), Color(0xFF0891B2)]),
-      const LinearGradient(colors: [Color(0xFF8B5CF6), Color(0xFFA78BFA)]),
-      const LinearGradient(colors: [Color(0xFFEAB308), Color(0xFFCA8A04)]),
-      const LinearGradient(colors: [Color(0xFF14B8A6), Color(0xFF0D9488)]),
-      const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
       const LinearGradient(colors: [Color(0xFFF59E0B), Color(0xFFD97706)]),
+      const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFBE185D)]),
+      const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+      const LinearGradient(colors: [Color(0xFF14B8A6), Color(0xFF0D9488)]),
+      const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
+      const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
+      const LinearGradient(colors: [Color(0xFFF59E0B), Color(0xFFD97706)]),
+      const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFBE185D)]),
+      const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+      const LinearGradient(colors: [Color(0xFF14B8A6), Color(0xFF0D9488)]),
     ];
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF14B8A6),
+        title: const Text('Grid View', style: TextStyle(fontWeight: FontWeight.bold)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded), onPressed: () => Navigator.pop(context)),
+      ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFF8F9FF), Color(0xFFEEF2FF)],
-          ),
-        ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 100,
-              floating: true,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                title: const Text(
-                  'Grid View',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                centerTitle: true,
-                background: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: GridView.builder(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 14, mainAxisSpacing: 14),
+          itemCount: gridItems.length,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                gradient: gradients[index % gradients.length],
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [BoxShadow(color: gradients[index % gradients.length].colors[0].withValues(alpha: 0.3), blurRadius: 16, offset: const Offset(0, 8))],
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: () {},
+                  borderRadius: BorderRadius.circular(16),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.25), shape: BoxShape.circle), child: const Icon(Icons.grid_on_rounded, color: Colors.white, size: 26)),
+                        const SizedBox(height: 10),
+                        Text(gridItems[index], textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 13)),
+                      ],
                     ),
                   ),
                 ),
               ),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.all(16),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                ),
-                delegate: SliverChildBuilderDelegate((context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      gradient: gradients[index % gradients.length],
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
-                          blurRadius: 12,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {},
-                        borderRadius: BorderRadius.circular(16),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withValues(alpha: 0.2),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Icon(
-                                  Icons.grid_on,
-                                  color: Colors.white,
-                                  size: 24,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                gridItems[index],
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }, childCount: gridItems.length),
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
   }
 }
 
-// ============================================================================
-// ABOUT ME PAGE
-// ============================================================================
+// About Me Page
 class AboutMePage extends StatelessWidget {
   const AboutMePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF6366F1),
+        title: const Text('Tentang Saya', style: TextStyle(fontWeight: FontWeight.bold)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded), onPressed: () => Navigator.pop(context)),
+      ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFF8F9FF), Color(0xFFEEF2FF)],
-          ),
-        ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 100,
-              floating: true,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                title: const Text(
-                  'Tentang Saya',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+        decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFAFBFC), Color(0xFFF0F4FF)])),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
+                  boxShadow: [BoxShadow(color: const Color(0xFF6366F1).withValues(alpha: 0.4), blurRadius: 24, offset: const Offset(0, 12))],
                 ),
-                centerTitle: true,
-                background: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                    ),
-                  ),
+                padding: const EdgeInsets.all(3),
+                child: ClipOval(
+                  child: Image.asset('assets/images/21.jpeg', width: 144, height: 144, fit: BoxFit.cover),
                 ),
               ),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+              const SizedBox(height: 40),
+              _buildInfoCard('NPM', '20241320068', Icons.badge_rounded, const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)])),
+              const SizedBox(height: 18),
+              _buildInfoCard('Nama', 'Nabil Ramadhan', Icons.person_outline_rounded, const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)])),
+              const SizedBox(height: 36),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(colors: [Color(0xFFFFFFFF), Color(0xFFF5F7FF)]),
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: const Color(0xFF6366F1).withValues(alpha: 0.15), width: 1.5),
+                  boxShadow: [BoxShadow(color: const Color(0xFF6366F1).withValues(alpha: 0.1), blurRadius: 16, offset: const Offset(0, 8))],
+                ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Profile Picture with gradient border
-                    Container(
-                      width: 140,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(
-                              0xFF6366F1,
-                            ).withValues(alpha: 0.4),
-                            blurRadius: 16,
-                            offset: const Offset(0, 8),
-                          ),
-                        ],
-                      ),
-                      padding: const EdgeInsets.all(3),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/03.png',
-                          width: 134,
-                          height: 134,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(gradient: const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]), borderRadius: BorderRadius.circular(10)), child: const Icon(Icons.info_rounded, color: Colors.white, size: 22)), const SizedBox(width: 12), const Text('Tentang Saya', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xFF6366F1)))]),
+                    const SizedBox(height: 18),
+                    Text(
+                      'Saya adalah seorang mahasiswa Program Studi Sistem Informasi di sebuah Universitas Kebangsaan Republik Indonesia. Aplikasi ini menunjukkan kemampuan saya dalam mengembangkan aplikasi mobile dengan Flutter yang modern dan user-friendly.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey[700], height: 1.9),
                     ),
-                    const SizedBox(height: 48),
-                    // NPM Section
-                    _buildInfoCard(
-                      title: 'NPM',
-                      value: '20241320093',
-                      icon: Icons.badge,
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    // Nama Section
-                    _buildInfoCard(
-                      title: 'Nama',
-                      value: '  Melvy Anjani Herdiyanthi',
-                      icon: Icons.person_outline,
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF8B5CF6), Color(0xFFA78BFA)],
-                      ),
-                    ),
-                    const SizedBox(height: 40),
-                    // Deskripsi Section
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFFFAF5FF), Color(0xFFEDE9FE)],
-                        ),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(
-                          color: const Color(0xFFE9D5FF),
-                          width: 2,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(
-                              0xFF8B5CF6,
-                            ).withValues(alpha: 0.1),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [
-                                      Color(0xFF6366F1),
-                                      Color(0xFF8B5CF6),
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: const Icon(
-                                  Icons.info,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              const Text(
-                                'Sekilas Tentang Saya',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xFF4F46E5),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Saya adalah seorang mahasiswa Program Studi Sistem Informasi di sebuah Universitas Kebangsaan Republik Indonesia.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey[700],
-                              height: 1.8,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 40),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildInfoCard({
-    required String title,
-    required String value,
-    required IconData icon,
-    required Gradient gradient,
-  }) {
+  Widget _buildInfoCard(String title, String value, IconData icon, Gradient gradient) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Colors.white, Color(0xFFFAFAFA)],
-        ),
+        gradient: const LinearGradient(colors: [Color(0xFFFFFFFF), Color(0xFFF5F7FF)]),
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.1),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.1), width: 1.5),
+        boxShadow: [BoxShadow(color: Colors.grey.withValues(alpha: 0.08), blurRadius: 16, offset: const Offset(0, 8))],
       ),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              gradient: gradient,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(icon, color: Colors.white, size: 24),
-          ),
-          const SizedBox(width: 16),
+          Container(padding: const EdgeInsets.all(14), decoration: BoxDecoration(gradient: gradient, borderRadius: BorderRadius.circular(14)), child: Icon(icon, color: Colors.white, size: 26)),
+          const SizedBox(width: 18),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey,
-                    letterSpacing: 0.5,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF1F2937),
-                  ),
-                ),
+                Text(title, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF9CA3AF), letterSpacing: 0.5)),
+                const SizedBox(height: 8),
+                Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: Color(0xFF1F2937))),
               ],
             ),
           ),
